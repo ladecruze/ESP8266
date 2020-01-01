@@ -23,29 +23,17 @@ void setup()   {
 }
 
 void loop() {
-  updateWatch();/* Every second increment clock and display */
-  delay(1000);
-}
-
-void updateWatch() {
-  s = s + 1;
-  if (s == 60) {
-    s = 0;
-    m = m + 1;
-  }
-  if (m == 60) {
-    m = 0;
-    h = h + 1;
-  }
-  if (h == 13)
-    h = 1;
-
   writeOLED();
+  delay(1000);
 }
 
 void writeOLED(){
   char time[30];
   display.clearDisplay();  /* Clear display */
+  /*Naive one
+  Add your name letter by letter here and change the x axis in drawStr() method for adjusting the text
+
+  */
   drawStr(10, 20, "L");
   drawStr(22, 20, "A");
   drawStr(34, 20, "D");
@@ -54,7 +42,7 @@ void writeOLED(){
   drawStr(70, 20, "R");
   drawStr(82, 20, "U");
   drawStr(94, 20, "Z");
-  drawStr(106, 20, "E");
+  drawStr(106, 20, "E"); 
   display.display();
 }
 
